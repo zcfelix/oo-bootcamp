@@ -3,7 +3,7 @@ import java.util.List;
 
 import static java.util.Arrays.asList;
 
-public class Mommifier {
+public class Mommy {
     private static final List<String> VOWELS = asList("a", "e", "i", "o", "u");
 
     public String mommify(final String input) {
