@@ -25,6 +25,6 @@ public class CookieTest {
 
     @Test
     public void should_cookie_is_best_when_has_most_chocolates() throws Exception {
-        assertThat(Cookie.bestOne(asList(cookie1, cookie2, cookie3)), is(cookie3));
+        assertThat(Bester.bestOne(asList(cookie1, cookie2, cookie3)), is(cookie3));
     }
 }

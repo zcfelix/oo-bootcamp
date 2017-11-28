@@ -25,6 +25,6 @@ public class RectangleTest {
 
     @Test
     public void should_rectangle_best_when_height_is_closest_to_width() throws Exception {
-        assertThat(Rectangle.bestOne(asList(r1, r2, r3)), is(r1));
+        assertThat(Bester.bestOne(asList(r1, r2, r3)), is(r1));
     }
 }

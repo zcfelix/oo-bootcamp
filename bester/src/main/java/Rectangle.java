@@ -1,6 +1,4 @@
-import java.util.List;
-
-public class Rectangle {
+public class Rectangle implements Compare<Rectangle> {
     private final int width;
     private final int height;
 
@@ -9,12 +7,9 @@ public class Rectangle {
         this.height = height;
     }
 
-
+    @Override
     public boolean isBetterThan(Rectangle other) {
         return Math.abs(width - height) < Math.abs(other.width - other.height);
     }
 
-    public static Rectangle bestOne(List<Rectangle> rectangles) {
-        return rectangles.stream().reduce((x, y) -> x.isBetterThan(y) ? x : y).get();
-    }
 }
