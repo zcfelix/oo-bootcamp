@@ -12,6 +12,8 @@
         <module>mommify</module>
         <module>currency</module>
         <module>bester</module>
+        <module>bester-again</module>
+        <module>bouncing-ball</module>
     </modules>
 
     <properties>

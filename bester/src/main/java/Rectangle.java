@@ -1,15 +1,19 @@
 public class Rectangle implements Compare<Rectangle> {
-    private final int width;
-    private final int height;
+    private final double width;
+    private final double height;
 
-    public Rectangle(final int width, final int height) {
+    public Rectangle(final double width, final double height) {
         this.width = width;
         this.height = height;
     }
 
     @Override
     public boolean isBetterThan(Rectangle other) {
-        return Math.abs(width - height) < Math.abs(other.width - other.height);
+        return getRate(this) > getRate(other);
+    }
+
+    private static double getRate(Rectangle rectangle) {
+        return rectangle.height > rectangle.width ? rectangle.width / rectangle.height : rectangle.height / rectangle.width;
     }
 
 }

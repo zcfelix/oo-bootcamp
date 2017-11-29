@@ -13,9 +13,9 @@ public class RectangleTest {
 
     @Before
     public void setUp() throws Exception {
-        r1 = new Rectangle(4, 5);
-        r2 = new Rectangle(4, 10);
-        r3 = new Rectangle(4, 20);
+        r1 = new Rectangle(4d, 5d);
+        r2 = new Rectangle(4d, 10d);
+        r3 = new Rectangle(4d, 20d);
     }
 
     @Test
