@@ -1,6 +1,6 @@
 package ball.model;
 
-public class BouncingElasticBall extends BouncingBall {
+public class Elastic implements Behavior {
     public static final int GROWTH_RATE = 2;
 
     static final int GROW = 1;
@@ -8,21 +8,15 @@ public class BouncingElasticBall extends BouncingBall {
 
     private int growthDirection;
 
-    public BouncingElasticBall(int x, int y, int radius, int direction, int growthDirection) {
-        super(x, y, radius, direction);
-        this.growthDirection = growthDirection;
-    }
-
-    public BouncingElasticBall(int x, int y, int direction, int growthDirection) {
-        super(x, y, direction);
+    public Elastic(int growthDirection) {
         this.growthDirection = growthDirection;
     }
 
     @Override
-    public void update() {
-        super.update();
-        growthDirection = reverseGrowthDirectionIfNecessary();
-        radius = next();
+    public void update(BallImpl ball) {
+        int radius = ball.radius();
+        growthDirection = reverseGrowthDirectionIfNecessary(radius);
+        ball.setRadius(next(radius));
     }
 
     /*******************************************************************
@@ -30,18 +24,18 @@ public class BouncingElasticBall extends BouncingBall {
      * Do not change elastic ALGORITHM below.
      *
      ******************************************************************/
-    private int reverseGrowthDirectionIfNecessary() {
-        if (growingTooBig() || shrinkingTooSmall()) {
+    private int reverseGrowthDirectionIfNecessary(int radius) {
+        if (growingTooBig(radius) || shrinkingTooSmall(radius)) {
             return switchDirection();
         }
         return this.growthDirection;
     }
 
-    private boolean shrinkingTooSmall() {
+    private boolean shrinkingTooSmall(int radius) {
         return radius <= 0 && shrinking();
     }
 
-    private boolean growingTooBig() {
+    private boolean growingTooBig(int radius) {
         return radius >= Ball.DEFAULT_RADIUS && growing();
     }
 
@@ -49,7 +43,7 @@ public class BouncingElasticBall extends BouncingBall {
         return growing() ? SHRINK : GROW;
     }
 
-    private int next() {
+    private int next(int radius) {
         return radius + (GROWTH_RATE * growthDirection);
     }
 

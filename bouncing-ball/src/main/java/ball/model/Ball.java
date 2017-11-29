@@ -11,4 +11,6 @@ public interface Ball {
     Point center();
 
     void update();
+
+    Ball addBehavior(Behavior behavior);
 }
