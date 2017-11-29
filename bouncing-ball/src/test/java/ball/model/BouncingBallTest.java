@@ -13,7 +13,7 @@ public class BouncingBallTest {
     public void should_go_down() throws Exception {
         Ball bouncingBall = BallFactory.bouncingBall(0, 100, BouncingBall.DOWN);
 
-        bouncingBall.update();;
+        bouncingBall.update();
 
         assertCenterYCoordinateIs(oneStepDownFrom(100), bouncingBall);
     }
