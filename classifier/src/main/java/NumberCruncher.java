@@ -1,44 +1,47 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class NumberCruncher {
-    public static List<Integer> filterEvens(List<Integer> numbers) {
-        List<Integer> list = new ArrayList<>();
-        for (Integer i : numbers) {
+    private final int[] numbers;
+
+    public NumberCruncher(int... numbers) {
+        this.numbers = numbers;
+    }
+
+    public int countEvens() {
+        int count = 0;
+        for (int i : numbers) {
             if (i % 2 == 0) {
-                list.add(i);
+                count++;
             }
         }
-        return list;
+        return count;
     }
 
-    public static List<Integer> filterOdds(List<Integer> numbers) {
-        List<Integer> list = new ArrayList<>();
-        for (Integer i : numbers) {
+    public int countOdds() {
+        int count = 0;
+        for (int i : numbers) {
             if (i % 2 != 0) {
-                list.add(i);
+                count++;
             }
         }
-        return list;
+        return count;
     }
 
-    public static List<Integer> filterPositives(List<Integer> numbers) {
-        List<Integer> list = new ArrayList<>();
-        for (Integer i : numbers) {
-            if (i > 0) {
-                list.add(i);
-            }
-        }
-        return list;
-    }
-
-    public static List<Integer> filterNegatives(List<Integer> numbers) {
-        List<Integer> list = new ArrayList<>();
-        for (Integer i : numbers) {
+    public int countNegatives() {
+        int count = 0;
+        for (int i : numbers) {
             if (i < 0) {
-                list.add(i);
+                count++;
             }
         }
-        return list;
+        return count;
+    }
+
+    public int countPositives() {
+        int count = 0;
+        for (int i : numbers) {
+            if (i > 0) {
+                count++;
+            }
+        }
+        return count;
     }
 }
