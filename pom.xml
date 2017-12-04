@@ -15,6 +15,7 @@
         <module>bester-again</module>
         <module>bouncing-ball</module>
         <module>book-store</module>
+        <module>classifier</module>
     </modules>
 
     <properties>
