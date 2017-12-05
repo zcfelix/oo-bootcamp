@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class NumberCruncher {
     private final int[] numbers;
 
@@ -5,43 +7,8 @@ public class NumberCruncher {
         this.numbers = numbers;
     }
 
-    public int countEvens() {
-        int count = 0;
-        for (int i : numbers) {
-            if (i % 2 == 0) {
-                count++;
-            }
-        }
-        return count;
+    public int countWith(final Classifier classifier1) {
+        return (int) Arrays.stream(numbers).filter(x -> classifier1.classify(x)).count();
     }
 
-    public int countOdds() {
-        int count = 0;
-        for (int i : numbers) {
-            if (i % 2 != 0) {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    public int countNegatives() {
-        int count = 0;
-        for (int i : numbers) {
-            if (i < 0) {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    public int countPositives() {
-        int count = 0;
-        for (int i : numbers) {
-            if (i > 0) {
-                count++;
-            }
-        }
-        return count;
-    }
 }

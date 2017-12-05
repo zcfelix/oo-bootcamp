@@ -14,22 +14,22 @@ public class NumberCruncherTest {
 
     @Test
     public void should_count_evens() {
-        assertThat(cruncher.countEvens(), is(5));
+        assertThat(cruncher.countWith(x -> x % 2 == 0), is(5));
     }
     
 
     @Test
     public void should_count_odds() {
-        assertThat(cruncher.countOdds(), is(6));
+        assertThat(cruncher.countWith(x -> x % 2 != 0), is(6));
     }
 
     @Test
     public void should_count_negatives() {
-        assertThat(cruncher.countNegatives(), is(5));
+        assertThat(cruncher.countWith(x -> x < 0), is(5));
     }
 
     @Test
     public void should_count_positives() {
-        assertThat(cruncher.countPositives(), is(5));
+        assertThat(cruncher.countWith(x -> x > 0), is(5));
     }
 }
