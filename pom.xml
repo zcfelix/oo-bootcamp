@@ -16,6 +16,7 @@
         <module>bouncing-ball</module>
         <module>book-store</module>
         <module>classifier</module>
+        <module>mars-rover</module>
     </modules>
 
     <properties>
