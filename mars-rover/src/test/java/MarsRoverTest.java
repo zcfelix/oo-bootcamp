@@ -10,7 +10,7 @@ public class MarsRoverTest {
 
     @Before
     public void setUp() {
-        rover = new MarsRover(new Position(1, 1), "N");
+        rover = new MarsRover(new Position(1, 1), Direction.N);
     }
 
     @Test
