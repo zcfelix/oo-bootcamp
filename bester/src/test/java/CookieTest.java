@@ -7,24 +7,25 @@ import static org.junit.Assert.*;
 
 public class CookieTest {
 
-    private Cookie cookie1;
-    private Cookie cookie2;
-    private Cookie cookie3;
+    private Cookie good;
+    private Cookie better;
+    private Cookie best;
 
     @Before
     public void setUp() throws Exception {
-        cookie1 = new Cookie(1);
-        cookie2 = new Cookie(2);
-        cookie3 = new Cookie(3);
+        good = new Cookie(10);
+        better = new Cookie(20);
+        best = new Cookie(30);
     }
 
     @Test
     public void should_cookie_has_more_chocolates_is_better() throws Exception {
-        assertThat(cookie2.isBetterThan(cookie1), is(true));
+        assertThat(better.isBetterThan(good), is(true));
+        assertThat(better.isBetterThan(best), is(false));
     }
 
     @Test
-    public void should_cookie_is_best_when_has_most_chocolates() throws Exception {
-        assertThat(Bester.bestOne(asList(cookie1, cookie2, cookie3)), is(cookie3));
+    public void should_find_best_cookie_with_most_chocolates() throws Exception {
+        assertThat(Bester.findBest(asList(good, better, best)), is(best));
     }
 }

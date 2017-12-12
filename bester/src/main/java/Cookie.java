@@ -1,5 +1,5 @@
 public class Cookie implements Compare<Cookie> {
-    private int numberOfChocolates;
+    private final int numberOfChocolates;
 
     public Cookie(int numberOfChocolates) {
         this.numberOfChocolates = numberOfChocolates;

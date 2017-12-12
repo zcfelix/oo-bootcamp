@@ -12,11 +12,11 @@
         <module>mommify</module>
         <module>currency</module>
         <module>bester</module>
-        <module>bester-again</module>
         <module>bouncing-ball</module>
         <module>book-store</module>
         <module>classifier</module>
         <module>mars-rover</module>
+        <module>football-game</module>
     </modules>
 
     <properties>
@@ -25,12 +25,12 @@
     </properties>
 
     <dependencies>
-        <!--<dependency>-->
-            <!--<groupId>org.mockito</groupId>-->
-            <!--<artifactId>mockito-all</artifactId>-->
-            <!--<version>1.9.5</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>2.10.0</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-all</artifactId>

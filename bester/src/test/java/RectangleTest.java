@@ -3,28 +3,29 @@ import org.junit.Test;
 
 import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class RectangleTest {
 
-    private Rectangle r1;
-    private Rectangle r2;
-    private Rectangle r3;
+    private Rectangle good;
+    private Rectangle better;
+    private Rectangle best;
 
     @Before
     public void setUp() throws Exception {
-        r1 = new Rectangle(4d, 5d);
-        r2 = new Rectangle(4d, 10d);
-        r3 = new Rectangle(4d, 20d);
+        good = new Rectangle(4, 30);
+        better = new Rectangle(4, 20);
+        best = new Rectangle(4, 10);
     }
 
     @Test
-    public void should_rectangle_be_better_when_height_closer_to_width() throws Exception {
-        assertThat(r1.isBetterThan(r2), is(true));
+    public void should_rectangle_better_when_closer_to_square() throws Exception {
+        assertThat(good.isBetterThan(better), is(false));
+        assertThat(best.isBetterThan(better), is(true));
     }
 
     @Test
-    public void should_rectangle_best_when_height_is_closest_to_width() throws Exception {
-        assertThat(Bester.bestOne(asList(r1, r2, r3)), is(r1));
+    public void should_find_best_rectangle_which_closest_to_square() throws Exception {
+        assertThat(Bester.findBest(asList(good, better, best)), is(best));
     }
 }
