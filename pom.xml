@@ -17,6 +17,8 @@
         <module>classifier</module>
         <module>mars-rover</module>
         <module>football-game</module>
+        <module>parking-lot</module>
+        <module>functional</module>
     </modules>
 
     <properties>
