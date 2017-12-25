@@ -1,15 +1,23 @@
+package parking;
+
+import visiting.Visitor;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParkingLot {
+public class ParkingLot implements WithParkingCapability {
     private int capacity;
     private List<Car> cars;
 
     public ParkingLot(int capacity) {
+        if (capacity < 0) {
+            throw new IllegalArgumentException("capacity should not be less than 0");
+        }
         this.capacity = capacity;
         cars = new ArrayList<>(capacity);
     }
 
+    @Override
     public boolean park(Car car) {
         if (cars.size() < capacity) {
             cars.add(car);
@@ -18,6 +26,7 @@ public class ParkingLot {
         return false;
     }
 
+    @Override
     public boolean pick(Car car) {
         if (cars.contains(car)) {
             cars.remove(car);
@@ -26,11 +35,13 @@ public class ParkingLot {
         return false;
     }
 
-    public int getCapacity() {
-        return capacity;
+    public <T> T get(Usage<T> usage) {
+        return usage.get(cars.size(), capacity);
     }
 
-    public int getRemained() {
-        return capacity - cars.size();
+    @Override
+    public String accept(Visitor visitor) {
+        return visitor.visit(this);
     }
+
 }

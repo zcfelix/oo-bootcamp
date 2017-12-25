@@ -1,13 +1,18 @@
+package parking;
+
+import help.TestHelper;
 import org.junit.Before;
 import org.junit.Test;
 
+import static help.TestHelper.getFullParkingLot;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static parking.WithParkingCapability.Usage.remained;
 
 public class ParkingLotTest {
 
     private Car car;
-    private final ParkingLot parkingLot = new ParkingLot(1);
+    private final WithParkingCapability parkingLot = new ParkingLot(1);
 
     @Before
     public void setUp() {
@@ -22,8 +27,7 @@ public class ParkingLotTest {
 
     @Test
     public void should_not_park_car_when_full() {
-        Car car = new Car();
-        assertThat(TestHelper.getFullParkingLot().park(car), is(false));
+        assertThat(getFullParkingLot().park(car), is(false));
     }
 
     @Test
@@ -39,8 +43,8 @@ public class ParkingLotTest {
 
     @Test
     public void should_get_capacity_of_a_parkingLot() {
-        assertThat(parkingLot.getRemained(), is(1));
+        assertThat(parkingLot.get(remained), is(1));
         parkingLot.park(new Car());
-        assertThat(parkingLot.getRemained(), is(0));
+        assertThat(parkingLot.get(remained), is(0));
     }
 }
