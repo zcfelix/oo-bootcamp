@@ -19,4 +19,8 @@ public class Person {
     public String toString() {
         return String.format("%s - %d", name, age);
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

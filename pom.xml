@@ -19,6 +19,7 @@
         <module>football-game</module>
         <module>parking-lot</module>
         <module>functional</module>
+        <module>generic</module>
     </modules>
 
     <properties>
